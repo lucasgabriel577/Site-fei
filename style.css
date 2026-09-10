@@ -1,0 +1,255 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f7;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 100px;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    box-shadow: 0 8px 32px rgba(15, 52, 96, 0.3);
+}
+
+.info-card {
+    border-left: 5px solid #111 !important;
+}
+
+.team-flag {
+    width: 90px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+.team-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.13) !important;
+}
+
+.footer-custom {
+    background-color: #111111;
+}
+
+.social-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.08);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+    background-color: rgba(255,255,255,0.18);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.liquid-nav {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: min(94vw, 500px);
+}
+
+.liquid-nav__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    height: 68px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    overflow: visible;
+}
+
+.liquid-nav__indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: calc(100% - 12px);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.liquid-nav__item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 18px;
+}
+
+.liquid-nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    padding: 0;
+    position: relative;
+}
+
+.liquid-nav__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    line-height: 1;
+    color: rgba(100, 110, 130, 0.7);
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+}
+
+.liquid-nav__label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(100, 110, 130, 0.7);
+    white-space: nowrap;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.liquid-nav__item.pre-active .liquid-nav__icon,
+.liquid-nav__item.active .liquid-nav__icon {
+    color: #111111;
+    transform: translateY(-3px);
+}
+
+.liquid-nav__item.pre-active .liquid-nav__label,
+.liquid-nav__item.active .liquid-nav__label {
+    color: #111111;
+}
+
+.liquid-nav__item.is-clicking .liquid-nav__icon {
+    animation: nav-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes nav-bounce {
+    0%   { transform: translateY(-3px) scale(1); }
+    30%  { transform: translateY(-8px) scale(1.2); }
+    60%  { transform: translateY(-1px) scale(0.9); }
+    100% { transform: translateY(-3px) scale(1); }
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+body.dark-theme {
+    background-color: #0d0d0f;
+    color: #f0f0f0;
+}
+
+body.dark-theme .card {
+    background-color: #1c1c1e !important;
+    border-color: #2c2c2e !important;
+    color: #f0f0f0;
+}
+
+body.dark-theme .text-secondary {
+    color: #aaaaaa !important;
+}
+
+body.dark-theme .table {
+    color: #cccccc;
+    --bs-table-hover-bg: #252528;
+    --bs-table-border-color: #2c2c2e;
+}
+
+body.dark-theme .table-dark th {
+    background-color: #2c2c2e;
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+    background-color: #1c1c1e;
+    border-color: #3a3a3c;
+    color: #f0f0f0;
+}
+
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus {
+    background-color: #1c1c1e;
+    color: #f0f0f0;
+    border-color: #f0f0f0;
+    box-shadow: 0 0 0 3px rgba(240,240,240,0.08);
+}
+
+body.dark-theme .form-label {
+    color: #cccccc;
+}
+
+body.dark-theme .liquid-nav__list {
+    background: rgba(28, 28, 30, 0.75);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.dark-theme .liquid-nav__indicator {
+    background: rgba(60, 60, 65, 0.9);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .liquid-nav__item.pre-active .liquid-nav__icon,
+body.dark-theme .liquid-nav__item.active .liquid-nav__icon,
+body.dark-theme .liquid-nav__item.pre-active .liquid-nav__label,
+body.dark-theme .liquid-nav__item.active .liquid-nav__label {
+    color: #f0f0f0;
+}
+
+body.dark-theme .footer-custom {
+    background-color: #0a0a0a;
+}
+
+body.dark-theme .info-card {
+    border-left-color: #f0f0f0 !important;
+}
